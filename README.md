@@ -35,7 +35,7 @@ Pastikan Anda sudah menginstal:
 1. **Clone Repository**
 
 ```
-git clone [https://github.com/Riko-firmando/clinic-app.git](https://github.com/Riko-firmando/clinic-app.git)
+git clone https://github.com/Riko-firmando/clinic-app.git
 ```
 
 2. **Masuk ke direktori proyek**
