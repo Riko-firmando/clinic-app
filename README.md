@@ -34,27 +34,24 @@ Pastikan Anda sudah menginstal:
 
 1. **Clone Repository**
 
-   ```bash
-
-   ```
-
-# Clone repository ini
-
 git clone [https://github.com/Riko-firmando/clinic-app.git](https://github.com/Riko-firmando/clinic-app.git)
 
-# Masuk ke direktori proyek
-
-cd clinic-app
-
-# Instal semua dependensi
-
-npm install
-
-# Jalankan aplikasi dalam mode development
-
-npm run dev
+2. **Masuk ke direktori proyek**
 
 ```
+cd clinic-app
+```
+
+3. **Instal semua dependensi**
+
+```
+npm install
+```
+
+4. **Jalankan aplikasi dalam mode development**
+
+```
+npm run dev
 
 ```
 
