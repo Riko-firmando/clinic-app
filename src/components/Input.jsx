@@ -2,7 +2,7 @@
 import clsx from "clsx";
 import { useState } from "react";
 import { Eye, EyeClosed } from "lucide-react";
-import { formatNumber } from "../utils/helper copy";
+import { formatNumber } from "../utils/helper";
 
 export default function Input({
   name,

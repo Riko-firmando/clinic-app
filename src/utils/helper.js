@@ -18,3 +18,17 @@ export function formatDateLocal(date) {
   const d = String(date.getDate()).padStart(2, "0");
   return `${y}-${m}-${d}`;
 }
+
+export const formatNumber = (value, separator = ".") => {
+  if (value == null) return "";
+
+  const valueStr = String(value);
+  const isNegative = valueStr.trim().startsWith("-");
+  const digitsOnly = valueStr.replace(/\D/g, "");
+
+  if (!digitsOnly) return isNegative ? "-" : "";
+
+  const formatted = digitsOnly.replace(/\B(?=(\d{3})+(?!\d))/g, separator);
+
+  return isNegative ? `-${formatted}` : formatted;
+};

@@ -8,11 +8,9 @@ import { appointments } from "../graphql/mocks/appointments";
 import { workflow } from "../graphql/mocks/workflow";
 import { mockUsers } from "../graphql/mocks/users";
 
-// 1. Buat executable schema seperti biasa
 const schema = makeExecutableSchema({ typeDefs });
 let currentUser = null;
 
-// 2. Definisikan Resolvers (Tempat logika nyata berada)
 const resolvers = {
   Query: {
     me: () => {
@@ -21,9 +19,7 @@ const resolvers = {
       }
       return currentUser;
     },
-    // Di sini kita menangkap argumen 'name' dari query
     patients: (_, { name, page = 1, limit = 5 }) => {
-      // 1. Filter berdasarkan nama terlebih dahulu
       let filtered = patients;
       if (name) {
         filtered = patients.filter((p) =>
@@ -31,10 +27,8 @@ const resolvers = {
         );
       }
 
-      // 2. Hitung metadata
       const totalCount = filtered.length;
 
-      // 3. Logika Pagination (Slicing array)
       const offset = (page - 1) * limit;
       const items = filtered.slice(offset, offset + limit);
 
@@ -61,12 +55,12 @@ const resolvers = {
   Mutation: {
     createPatient: (_, args) => {
       const newPatient = {
-        id: String(patients.length + 1), // Generate ID sederhana
-        ...args, // Default untuk pasien baru
+        id: String(patients.length + 1),
+        ...args,
         visits: [],
       };
 
-      patients.unshift(newPatient); // Tambah ke urutan paling atas
+      patients.unshift(newPatient);
       return newPatient;
     },
     updatePatient: (_, { id, input }) => {
@@ -78,7 +72,7 @@ const resolvers = {
 
       patients[index] = {
         ...patients[index],
-        ...input, // overwrite hanya field yang dikirim
+        ...input,
       };
 
       return patients[index];
@@ -126,11 +120,10 @@ const resolvers = {
   },
 };
 
-// 3. Gabungkan Mocking dan Resolvers
 const schemaWithMocks = addMocksToSchema({
   schema,
-  resolvers, // Gunakan resolvers yang sudah kita buat
-  preserveResolvers: true, // PENTING: Tanpa ini, logika filter Anda akan diabaikan oleh mock
+  resolvers,
+  preserveResolvers: true,
 });
 
 export const client = new ApolloClient({
