@@ -18,7 +18,7 @@ const router = createBrowserRouter([
     element: <MainLayout />,
     loader: requireAuth,
     children: [
-      { path: "/dashboard", element: <Dashboard /> },
+      { path: "/", element: <Dashboard /> },
       { path: "/appointment", element: <AppointmentPage /> },
       { path: "/workflow", element: <WorkflowBuilder /> },
       { path: "/profile", element: <Profile /> },

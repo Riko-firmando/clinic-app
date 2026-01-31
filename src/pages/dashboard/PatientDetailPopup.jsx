@@ -3,7 +3,7 @@ import Popup from "../../components/Popup2";
 import { useClinicStore } from "../../store/useClinicStore";
 import { GET_PATIENT_DETAIL } from "../../graphql/queries";
 import { getInitialName } from "../../utils/helper";
-import { Locate, LocateIcon, Mail, PhoneCall } from "lucide-react";
+import { LocateIcon, Mail, PhoneCall } from "lucide-react";
 import { isEmpty } from "lodash";
 
 const PatientDetailPopup = ({ isOpen, onClose }) => {

@@ -30,11 +30,8 @@ export default function Login() {
         variables: { email, password },
       });
 
-      // 🔥 simpan token ke AuthContext
       login(data.login.accessToken);
-
-      // 🔥 redirect setelah login sukses
-      navigate("/dashboard", { replace: true });
+      navigate("/", { replace: true });
     } catch (err) {
       console.error(err);
 
@@ -50,7 +47,6 @@ export default function Login() {
     <div className="min-h-screen bg-linear-to-br from-blue-50 to-[#d5f7f0] flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         <div className="bg-white rounded-2xl shadow-xl p-8">
-          {/* Logo */}
           <div className="text-center mb-8">
             <div className="inline-flex items-center justify-center w-16 h-16 bg-[#1D9D86] rounded-full">
               <Activity className="w-8 h-8 text-white" />

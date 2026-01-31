@@ -1,4 +1,3 @@
-"use client";
 import clsx from "clsx";
 import { useState } from "react";
 import { Eye, EyeClosed } from "lucide-react";

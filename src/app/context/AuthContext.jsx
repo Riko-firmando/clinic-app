@@ -18,7 +18,7 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     if (data?.me) {
-      setUser(data.me); // 🔥 simpan ke zustand
+      setUser(data.me);
     }
 
     if (error) {

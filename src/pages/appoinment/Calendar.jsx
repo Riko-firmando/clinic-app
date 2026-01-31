@@ -27,14 +27,12 @@ const Calendar = ({
   onPrevMonth,
   onNextMonth,
 }) => {
-  // 🔹 Map appointment per tanggal
   const appointmentMap = appointments.reduce((acc, item) => {
     if (!acc[item.date]) acc[item.date] = [];
     acc[item.date].push(item);
     return acc;
   }, {});
 
-  // 🔹 Generate full calendar
   const generateDays = () => {
     const firstDay = new Date(year, month - 1, 1);
     const lastDay = new Date(year, month, 0);
@@ -64,7 +62,6 @@ const Calendar = ({
 
   return (
     <div className=" bg-white rounded-xl p-5">
-      {/* HEADER BULAN */}
       <div className="flex items-center justify-between mb-4">
         <h2 className="font-semibold text-lg">
           {monthNames[month - 1]} {year}
@@ -85,15 +82,11 @@ const Calendar = ({
           </button>
         </div>
       </div>
-
-      {/* HEADER HARI */}
       <div className="grid grid-cols-7 mb-2 text-center text-sm text-gray-500">
         {daysHeader.map((d) => (
           <div key={d}>{d}</div>
         ))}
       </div>
-
-      {/* TANGGAL */}
       <div className="grid grid-cols-7 gap-2">
         {calendarDays.map((day, index) => {
           if (!day) return <div key={index} />;
@@ -123,8 +116,6 @@ const Calendar = ({
           );
         })}
       </div>
-
-      {/* LEGEND */}
       <div className="flex gap-4 mt-4 text-sm text-gray-500">
         <div className="flex items-center gap-2">
           <span className="w-3 h-3 bg-blue-100 border border-blue-400 rounded" />

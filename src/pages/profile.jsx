@@ -14,7 +14,7 @@ const Profile = () => {
   };
 
   if (!user) {
-    return null; // atau loading / redirect
+    return null;
   }
 
   return (
@@ -22,7 +22,6 @@ const Profile = () => {
       <h2 className="text-2xl font-bold mb-3">Profile</h2>
 
       <div className="bg-white rounded-xl border border-gray-200 p-6 space-y-6">
-        {/* Avatar */}
         <div className="flex items-center gap-4">
           <div className="w-14 h-14 bg-[#EEFBF8] rounded-full flex items-center justify-center">
             <User className="w-7 h-7 text-[#1D9D86]" />
@@ -33,7 +32,6 @@ const Profile = () => {
           </div>
         </div>
 
-        {/* Info */}
         <div className="grid grid-cols-2 gap-4 text-sm">
           <div>
             <p className="text-gray-500">Role</p>
@@ -46,7 +44,6 @@ const Profile = () => {
           </div>
         </div>
 
-        {/* Logout */}
         <div className="pt-4 border-t border-gray-200">
           <button
             onClick={handleLogout}

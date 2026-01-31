@@ -17,14 +17,12 @@ const requiredFields = [
 
 const AddPatientPopup = ({ isOpen, onClose }) => {
   const [form, setFOrm] = useState({});
-  // 1. Inisialisasi Mutasi
-  const [addPatient, { loading }] = useMutation(CREATE_PATIENT, {
-    // 2. Beritahu Apollo untuk menarik data terbaru setelah berhasil tambah
+  const [addPatient] = useMutation(CREATE_PATIENT, {
     refetchQueries: [
       {
         query: GET_PATIENTS,
         variables: {
-          name: "", // atau query state
+          name: "",
           page: 1,
           limit: 5,
         },
@@ -47,7 +45,7 @@ const AddPatientPopup = ({ isOpen, onClose }) => {
       alert("Mohon lengkapi semua field yang wajib diisi!");
       return;
     }
-    // 3. Jalankan fungsi mutasi dengan variabel
+
     addPatient({
       variables: form,
     });

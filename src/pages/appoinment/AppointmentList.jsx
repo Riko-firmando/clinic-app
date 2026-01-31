@@ -1,6 +1,5 @@
 import { Timer, User } from "lucide-react";
 
-// components/AppointmentList.jsx
 const AppointmentList = ({ date, appointments }) => {
   return (
     <div className="w-full lg:w-[320px] bg-white rounded-xl p-5">

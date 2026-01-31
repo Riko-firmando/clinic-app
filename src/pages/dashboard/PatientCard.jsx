@@ -22,11 +22,10 @@ import { useUserStore } from "../../store/useUserStore";
 import { upperCase } from "lodash";
 
 const PatientCard = () => {
+  const limit = 6;
   const { role } = useUserStore();
-  const limit = 6; // Diubah ke 6 agar grid 3 kolom tetap simetris (3x2)
   const [page, setPage] = useState(1);
 
-  // State untuk search dengan Debounce
   const [searchTerm, setSearchTerm] = useState("");
   const [debouncedQuery] = useDebounce(searchTerm, 500);
 
@@ -35,7 +34,6 @@ const PatientCard = () => {
   const [openEdit, setOpenEdit] = useState(false);
   const { setSelectedPatient } = useClinicStore();
 
-  // Query dengan debouncedQuery
   const { data, loading: queryLoading } = useQuery(GET_PATIENTS, {
     variables: { name: debouncedQuery, page, limit },
   });
@@ -46,7 +44,6 @@ const PatientCard = () => {
     ],
   });
 
-  // Reset page saat user mencari nama baru
   useEffect(() => {
     setPage(1);
   }, [debouncedQuery]);

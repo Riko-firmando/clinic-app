@@ -27,7 +27,7 @@ const EditPatientPopup = ({ isOpen, onClose }) => {
   });
   const patient = data?.patient || {};
   const [form, setFOrm] = useState({});
-  const [updatePatient, { loading }] = useMutation(UPDATE_PATIENT, {
+  const [updatePatient] = useMutation(UPDATE_PATIENT, {
     refetchQueries: [{ query: GET_PATIENTS }],
     onCompleted: () => {
       onClose();
@@ -35,7 +35,6 @@ const EditPatientPopup = ({ isOpen, onClose }) => {
   });
 
   useEffect(() => {
-    // Hanya setForm jika data patient ada dan id-nya berbeda dengan yang ada di form
     if (patient?.id && patient.id !== form.id) {
       setFOrm({ ...patient });
     }

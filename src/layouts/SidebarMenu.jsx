@@ -16,7 +16,7 @@ const SidebarMenu = () => {
   const location = useLocation();
   const { user, role } = useUserStore();
   const menuItems = [
-    { path: "/dashboard", icon: LayoutDashboard, label: "Dashboard" },
+    { path: "/", icon: LayoutDashboard, label: "Dashboard" },
     { path: "/appointment", icon: Calendar, label: "Appointment" },
     ...(role === "admin"
       ? [{ path: "/workflow", icon: Workflow, label: "Workflow Builder" }]

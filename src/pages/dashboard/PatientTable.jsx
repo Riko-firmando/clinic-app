@@ -39,10 +39,8 @@ const PatientTable = () => {
   const limit = 5;
   const [page, setPage] = useState(1);
 
-  // State untuk menangkap input teks secara langsung
   const [searchTerm, setSearchTerm] = useState("");
 
-  // Debounce nilai searchTerm selama 500ms
   const [debouncedQuery] = useDebounce(searchTerm, 500);
 
   const { setSelectedPatient } = useClinicStore();
@@ -50,7 +48,6 @@ const PatientTable = () => {
   const [openAdd, setOpenAdd] = useState(false);
   const [openEdit, setOpenEdit] = useState(false);
 
-  // Gunakan debouncedQuery untuk fetch data
   const { data, loading: queryLoading } = useQuery(GET_PATIENTS, {
     variables: { name: debouncedQuery, page, limit },
   });
@@ -61,7 +58,6 @@ const PatientTable = () => {
     ],
   });
 
-  // Reset halaman ke 1 setiap kali user melakukan pencarian baru
   useEffect(() => {
     setPage(1);
   }, [debouncedQuery]);
@@ -80,7 +76,7 @@ const PatientTable = () => {
       <div className="flex justify-between mb-2">
         <Input
           className="max-w-75"
-          value={searchTerm} // Terikat ke searchTerm agar responsif saat mengetik
+          value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           placeholder="Cari pasien..."
           prefix={
